@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD Assignment 1
+name: Assignment 1 Azure Static Web Apps CI/CD
 
 on:
   push:
