@@ -22,12 +22,16 @@
                 X
             </h-card>
         </v-col>
-        <v-col>
+        <v-card-text>
             Text goes here!?
-        </v-col>
-        <v-col>
+        </v-card-text>
+        <v-card>
             Keyboard goes here!!!
-        </v-col>
+        </v-card>
+        <v-card-actions>
+        <v-spacer/>
+        <v-btn color="primary" nuxt to="/index"> Return Home </v-btn>
+        </v-card-actions>
     </v-row>
 </template>
 
