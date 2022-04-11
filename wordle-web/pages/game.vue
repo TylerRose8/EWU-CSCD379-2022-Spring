@@ -1,36 +1,39 @@
 <template>
     <v-row justify="center" align="center">
-        <v-col>
-            <h1>
+        <v-card-title class="headline">
                 ǝlpɹoM
-            </h1>
-        </v-col>
-        <v-col cols="5" sm="8" md="6">
-            <h-card style="width:100px;height:100px">
-                X
-            </h-card>
-            <h-card style="width:100px;height:100px">
-                X
-            </h-card>
-            <h-card style="width:100px;height:100px">
-                X
-            </h-card>
-            <h-card style="width:100px;height:100px">
-                X
-            </h-card>
-            <h-card style="width:100px;height:100px">
-                X
-            </h-card>
-        </v-col>
+        </v-card-title>
+        <v-spacer/>
+        <v-card>
+            <h-col cols="5" sm="8" md="6">
+                <h-card style="width:100px;height:100px">
+                    X
+                </h-card>
+                <h-card style="width:100px;height:100px">
+                    X
+                </h-card>
+                <h-card style="width:100px;height:100px">
+                    X
+                </h-card>
+                <h-card style="width:100px;height:100px">
+                    X
+                </h-card>
+                <h-card style="width:100px;height:100px">
+                    X
+                </h-card>
+            </h-col>
+        </v-card>
+        <v-card>
         <v-card-text>
             Text goes here!?
         </v-card-text>
+        </v-card>
         <v-card>
             Keyboard goes here!!!
         </v-card>
         <v-card-actions>
         <v-spacer/>
-        <v-btn color="primary" nuxt to="/index"> Return Home </v-btn>
+        <v-btn color="primary" nuxt to="/"> Return Home </v-btn>
         </v-card-actions>
     </v-row>
 </template>
