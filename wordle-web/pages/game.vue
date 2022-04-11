@@ -1,7 +1,7 @@
 <template>
     <h-row justify="center" align="center">
         <h-card-title class="headline">
-                ǝlpɹoM
+                ǝlpɹoM 
         </h-card-title>
         <h-spacer/>
         <h-card>
