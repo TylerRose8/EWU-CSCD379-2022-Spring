@@ -1,28 +1,43 @@
 <template>
-    <h1>
-                ǝlpɹoM 
-    </h1>
-    <v-spacer/>
-    <div>
-        <div style="border:1px;width:100px;height:100px;">
-        <div style="border:1px;width:100px;height:100px;">
-        <div style="border:1px;width:100px;height:100px;">
-        <div style="border:1px;width:100px;height:100px;">
-        <div style="border:1px;width:100px;height:100px;">
-    </div>
-    <div>
-        Text goes here!?
-    </div>
-    </v-spacer/>
-    </v-spacer/>
-    <div>
-        Keyboard goes here!!!
-    </div>
 	<div>
-		<h-card-actions>
-			<h-spacer/>
-			<h-btn color="primary" nuxt to="/"> Return Home </h-btn>
-		</h-card-actions>
+		<h-row justify="center" align="center">
+			<h1>
+						ǝlpɹoM 
+			</h1>
+			<br/>
+			<div>
+				<v-row justify="center" align="center">
+					<span style="border:1px;width:100px;height:100px;background-color:grey;">
+					X
+					</span>
+					<span style="border:1px;width:100px;height:100px;background-color:grey;">
+					X
+					</span>
+					<span style="border:1px;width:100px;height:100px;background-color:grey;">
+					X
+					</span>
+					<span style="border:1px;width:100px;height:100px;background-color:grey;">
+					X
+					</span>
+					<span style="border:1px;width:100px;height:100px;background-color:grey;">
+					X
+					</span>
+				</v-row>
+			</div>
+			<br/>
+			<div>
+				Text goes here!?
+			</div>
+			<br/>
+			<br/>
+			<div>
+				Keyboard goes here!!!
+			</div>
+		</h-row>
+		<div>
+			<br/>
+			<v-btn color="primary" nuxt to="/"> Return Home </v-btn>
+		</div>
 	</div>
 </template>
 
