@@ -1,60 +1,60 @@
 <template>
-  <v-card style="padding:5%;margine:5%">
+  <v-card style="padding: 5%; margine: 5%">
     <h-row justify="center" align="center">
       <h1>ǝlpɹoM</h1>
       <br />
-        <v-row justify="center" align="center">
-          <v-col
-            style="
-              border: 1px;
-              width: 100px;
-              height: 100px;
-              background-color: grey;
-            "
-          >
-            X
-          </v-col>
-          <v-col
-            style="
-              border: 1px;
-              width: 100px;
-              height: 100px;
-              background-color: grey;
-            "
-          >
-            X
-          </v-col>
-          <v-col
-            style="
-              border: 1px;
-              width: 100px;
-              height: 100px;
-              background-color: grey;
-            "
-          >
-            X
-          </v-col>
-          <v-col
-            style="
-              border: 1px;
-              width: 100px;
-              height: 100px;
-              background-color: grey;
-            "
-          >
-            X
-          </v-col>
-          <v-col
-            style="
-              border: 1px;
-              width: 100px;
-              height: 100px;
-              background-color: grey;
-            "
-          >
-            X
-          </v-col>
-        </v-row>
+      <v-row justify="center" align="center">
+        <v-col
+          style="
+            border: 1px;
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+          "
+>
+          X
+        </v-col>
+        <v-col
+          style="
+            border: 1px;
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+          "
+        >
+          X
+        </v-col>
+        <v-col
+          style="
+            border: 1px;
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+          "
+        >
+          X
+        </v-col>
+        <v-col
+          style="
+            border: 1px;
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+          "
+        >
+          X
+        </v-col>
+        <v-col
+          style="
+            border: 1px;
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+          "
+        >
+          X
+        </v-col>
+      </v-row>
       <br />
       <v-row>Text goes here!?</v-row>
       <br />
