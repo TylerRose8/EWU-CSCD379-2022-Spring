@@ -11,7 +11,7 @@
             height: 100px;
             background-color: grey;
           "
->
+        >
           X
         </v-col>
         <v-col
