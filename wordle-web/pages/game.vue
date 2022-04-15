@@ -55,16 +55,16 @@
           X
         </v-col>
       </v-row>
-      <br />
-      <v-row>Text goes here!?</v-row>
-      <br />
-      <br />
-      <v-row>Keyboard goes here!!!</v-row>
+      <v-container style="padding-top: 50px">
+        <v-row>Text goes here!?</v-row>
+      </v-container>
+      <v-container>
+        <v-row>Keyboard goes here!!!</v-row>
+      </v-container>
     </h-row>
-    <div>
-      <br />
+    <v-container style="padding-top: 50px">
       <v-btn color="primary" nuxt to="/"> Return Home </v-btn>
-    </div>
+    </v-container>
   </v-card>
 </template>
 
