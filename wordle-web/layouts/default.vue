@@ -81,6 +81,11 @@ export default {
           title: 'Inspire',
           to: '/inspire',
         },
+        {
+          icon: 'abc',
+          title: 'Game',
+          to: '/game',
+        },
       ],
       miniVariant: false,
       right: true,
