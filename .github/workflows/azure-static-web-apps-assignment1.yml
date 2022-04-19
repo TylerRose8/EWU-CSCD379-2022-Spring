@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - run: cd ./wordle-web
       - uses: actions/checkout@v2
         with:
           submodules: true
@@ -25,7 +24,9 @@ jobs:
           node-version: "14"
       - run: npm i
         name: Run NPM Install
+        working-directory: ./wordle-web
       - run: npm run test
+        working-directory: ./wordle-web
       - run: npm run generate
       - name: Build And Deploy
         id: builddeploy
