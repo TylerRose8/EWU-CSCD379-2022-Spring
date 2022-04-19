@@ -1,7 +1,7 @@
 <template>
   <v-card style="padding: 5%; margin: 5%">
     <h-row justify="center" align="center">
-      <h1>ǝlpɹoM</h1>
+      <h1>ǝlpɹoM </h1>
       <br />
       <v-row justify="center" align="center">
         <v-col
