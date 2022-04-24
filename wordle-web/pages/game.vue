@@ -1,38 +1,35 @@
 <template>
   <v-container fluid fill-height justify-center>
-    <v-tooltip bottom>
-      <template #activator="{ on, attrs }">
-        <v-btn color="primary" nuxt to="/" fab v-bind="attrs" v-on="on">
-          <v-icon> mdi-home </v-icon>
-        </v-btn>
-      </template>
-      <span> Go Home </span>
-    </v-tooltip>
+
 
     <v-card-text class="text-h1 font-weight-black text-center">
-      Wordle!!
+      Wordle
     </v-card-text>
 
     <v-alert v-if="wordleGame.gameOver" width="80%" :type="gameResult.type">
       {{ gameResult.text }}
-      <v-btn class="ml-2" @click="resetGame"> Play Again? </v-btn>
+      <v-btn class="ml-2" @click="resetGame"> Play Again?</v-btn>
     </v-alert>
-
-    <game-board :wordleGame="wordleGame" />
-
-    <keyboard :wordleGame="wordleGame" />
+    <v-row justify="center" align="center">
+      <v-col cols="12" justify="center" align="center">
+        <game-board :wordleGame="wordleGame"/>
+      </v-col>
+      <v-col cols="6">
+        <keyboard :wordleGame="wordleGame"/>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { WordsService } from '~/scripts/wordsService'
-import { GameState, WordleGame } from '~/scripts/wordleGame'
+import {Component, Vue} from 'vue-property-decorator'
+import {WordsService} from '~/scripts/wordsService'
+import {GameState, WordleGame} from '~/scripts/wordleGame'
 import KeyBoard from '@/components/keyboard.vue'
 import GameBoard from '@/components/game-board.vue'
-import { Word } from '~/scripts/word'
+import {Word} from '~/scripts/word'
 
-@Component({ components: { KeyBoard, GameBoard } })
+@Component({components: {KeyBoard, GameBoard}})
 export default class Game extends Vue {
   word: string = WordsService.getRandomWord()
   wordleGame = new WordleGame(this.word)
@@ -44,12 +41,12 @@ export default class Game extends Vue {
 
   get gameResult() {
     if (this.wordleGame.state === GameState.Won) {
-      return { type: 'success', text: 'Yay! You won!' }
+      return {type: 'success', text: 'Yay! You won!'}
     }
     if (this.wordleGame.state === GameState.Lost) {
-      return { type: 'error', text: `You lost... :( The word was ${this.word}` }
+      return {type: 'error', text: `You lost... :( The word was ${this.word}`}
     }
-    return { type: '', text: '' }
+    return {type: '', text: ''}
   }
 
   getLetter(row: number, index: number) {

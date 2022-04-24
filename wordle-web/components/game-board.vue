@@ -1,6 +1,6 @@
 <template>
   <v-card width="450">
-    <v-container>
+    <v-container class="container-gradient">
       <v-row v-for="row in wordleGame.maxGuesses" :key="row" dense>
         <v-col v-for="index in wordleGame.currentWord.maxLetters" :key="index">
           <v-card height="50" :color="letterColor(getLetter(row, index))">
@@ -44,3 +44,9 @@ export default class GameBoard extends Vue {
   }
 }
 </script>
+
+<style>
+.container-gradient {
+  background: linear-gradient(0deg, rgba(10,10,10,0.5) 0%, rgba(25,25,25,1) 50%, rgba(50,50,50,1) 100%);
+}
+</style>

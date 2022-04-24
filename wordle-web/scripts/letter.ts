@@ -3,6 +3,7 @@ export enum LetterStatus {
   Correct = 1,
   WrongPlace = 2,
   Wrong = 3,
+  Hover = 4,
 }
 
 export class Letter {
@@ -30,6 +31,9 @@ export class Letter {
       }
       case LetterStatus.Wrong: {
         return 'error'
+      }
+      case LetterStatus.Hover: {
+        return 'secondary'
       }
     }
   }

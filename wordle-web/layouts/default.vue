@@ -1,6 +1,14 @@
 <template>
   <v-app>
     <v-app-bar fixed app>
+      <v-tooltip bottom>
+        <template #activator="{ on, attrs }">
+          <v-btn color="primary" nuxt to="/" fab v-bind="attrs" v-on="on">
+            <v-icon> mdi-home</v-icon>
+          </v-btn>
+        </template>
+        <span> Go Home </span>
+      </v-tooltip>
       <router-link to="/" class="text-h4 font-weight-black no-decoration">
         Wordle
       </router-link>

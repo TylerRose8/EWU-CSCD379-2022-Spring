@@ -4,8 +4,10 @@
       <v-col v-for="char in charRow" :key="char" cols="1">
         <v-container class="text-center">
           <v-btn
+            class="gradient-blue"
             :color="letterColor(char)"
             :disabled="wordleGame.gameOver"
+            @mouseover="letterColor('hover')"
             @click="setLetter(char)"
           >
             {{ char }}
@@ -74,8 +76,17 @@ export default class KeyBoard extends Vue {
     if (this.wordleGame.wrongChars.includes(char)) {
       return Letter.getColorCode(LetterStatus.Wrong)
     }
+    if(char === "hover") {
+      return Letter.getColorCode(LetterStatus.Hover)
+    }
 
     return Letter.getColorCode(LetterStatus.Unknown)
   }
 }
 </script>
+
+<style>
+.gradient-blue{
+  background: linear-gradient(0deg, rgba(0,83,185,0.5) 0%, rgba(15,108,200,0.5) 25%, rgba(25,118,210,1) 100%);
+}
+</style>
