@@ -18,6 +18,9 @@
         <keyboard :wordleGame="wordleGame"/>
       </v-col>
     </v-row>
+    <v-col cols="6">
+      <AvailableWordlist :wordleGame="wordleGame"/>
+    </v-col>
   </v-container>
 </template>
 
@@ -27,6 +30,7 @@ import {WordsService} from '~/scripts/wordsService'
 import {GameState, WordleGame} from '~/scripts/wordleGame'
 import KeyBoard from '@/components/keyboard.vue'
 import GameBoard from '@/components/game-board.vue'
+// import AvailableWordList from '@/components/available-wordlist.vue'
 import {Word} from '~/scripts/word'
 
 @Component({components: {KeyBoard, GameBoard}})

@@ -34,13 +34,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
-import { Letter, LetterStatus } from '~/scripts/letter'
-import { WordleGame } from '~/scripts/wordleGame'
+import {Component, Vue, Prop} from 'vue-property-decorator'
+import {Letter, LetterStatus} from '~/scripts/letter'
+import {WordleGame} from '~/scripts/wordleGame'
 
 @Component
 export default class KeyBoard extends Vue {
-  @Prop({ required: true })
+  @Prop({required: true})
   wordleGame!: WordleGame
 
   chars = [
@@ -58,10 +58,10 @@ export default class KeyBoard extends Vue {
   }
 
   guessWord() {
-    if (
-      this.wordleGame.currentWord.length ===
-      this.wordleGame.currentWord.maxLetters
-    ) {
+    if(this.wordleGame.currentWord.text.includes('?')) {
+      this.wordleGame.showHints = true;
+    }
+    else if (this.wordleGame.currentWord.length === this.wordleGame.currentWord.maxLetters {
       this.wordleGame.submitWord()
     }
   }
@@ -76,7 +76,7 @@ export default class KeyBoard extends Vue {
     if (this.wordleGame.wrongChars.includes(char)) {
       return Letter.getColorCode(LetterStatus.Wrong)
     }
-    if(char === "hover") {
+    if (char === "hover") {
       return Letter.getColorCode(LetterStatus.Hover)
     }
 
@@ -86,7 +86,7 @@ export default class KeyBoard extends Vue {
 </script>
 
 <style>
-.gradient-blue{
-  background: linear-gradient(0deg, rgba(0,83,185,0.5) 0%, rgba(15,108,200,0.5) 25%, rgba(25,118,210,1) 100%);
+.gradient-blue {
+  background: linear-gradient(0deg, rgba(0, 83, 185, 0.5) 0%, rgba(15, 108, 200, 0.5) 25%, rgba(25, 118, 210, 1) 100%);
 }
 </style>

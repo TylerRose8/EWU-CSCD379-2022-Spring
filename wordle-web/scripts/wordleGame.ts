@@ -8,9 +8,11 @@ export enum GameState {
 }
 
 export class WordleGame {
+  showHints: boolean;
   constructor(word: string) {
     this.words.push(new Word())
     this.word = word
+    this.showHints = false;
   }
 
   private word: string

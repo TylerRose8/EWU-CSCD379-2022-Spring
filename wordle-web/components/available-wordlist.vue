@@ -1,4 +1,4 @@
-<template>
+<template :hidden="wordleGame.showHints">
   <v-card class="my-5 pa-5">
     <v-row v-for="(word, i) in possibleWordList" :key="i" no-gutters justify="center">
       <v-container class="text-center">
@@ -15,7 +15,7 @@ import {WordsService} from '~/scripts/wordsService'
 import {WordleGame} from '~/scripts/wordleGame'
 
 @Component
-export default class KeyBoard extends Vue {
+export default class AvailableWordlist extends Vue {
   @Prop({required: true})
   wordleGame!: WordleGame
 
