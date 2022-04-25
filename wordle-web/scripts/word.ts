@@ -1,4 +1,4 @@
-import { Letter, LetterStatus } from '~/scripts/letter'
+import {Letter, LetterStatus} from '~/scripts/letter'
 
 export class Word {
   readonly letters: Letter[] = []
@@ -17,6 +17,12 @@ export class Word {
   removeLetter() {
     if (this.letters.length > 0) {
       this.letters.pop()
+    }
+  }
+
+  clearWord() {
+    while (this.letters.length > 0) {
+      this.removeLetter()
     }
   }
 
