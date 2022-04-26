@@ -25,7 +25,7 @@ Note: Custom CSS can only be used where specified.
 - Choose an icon for the app (from Material Design or somewhere on the web) ✅
 - Clicking the name and icon of the app take you to the home page ✅
 - Hamburger menu on the right ✅
-- Menu option for an About page ❌✅
+- Menu option for an About page ✅
   - Create an About page that has a few sentences about this class project and how great Meg is ❌✅
   - Make sure this has a back button ❌✅
 
