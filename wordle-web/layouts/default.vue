@@ -4,7 +4,7 @@
       <v-tooltip bottom>
         <template #activator="{ on, attrs }">
           <v-btn color="primary" nuxt to="/" fab v-bind="attrs" v-on="on">
-            <v-icon> mdi-home</v-icon>
+            <v-icon> mdi-alphabetical</v-icon>
           </v-btn>
         </template>
         <span> Go Home </span>

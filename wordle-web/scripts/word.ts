@@ -1,4 +1,5 @@
 import {Letter, LetterStatus} from '~/scripts/letter'
+import {AvailableWordService} from "~/scripts/availableWordService";
 
 export class Word {
   readonly letters: Letter[] = []
@@ -11,6 +12,9 @@ export class Word {
   addLetter(char: string) {
     if (this.letters.length < this.maxLetters) {
       this.letters.push(new Letter(char))
+    }
+    if(this.letters.length === this.maxLetters){
+      AvailableWordService.ValidWords(this.text)
     }
   }
 

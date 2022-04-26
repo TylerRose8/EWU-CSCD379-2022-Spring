@@ -1,17 +1,6 @@
 import { Word } from '@/scripts/word'
 import { LetterStatus } from '~/scripts/letter'
 
-describe('Word Test', () => {
-  test('is an instance', () => {
-    const word = new Word()
-    expect(word).toBeTruthy()
-    word.addLetter('A')
-    expect(word.length).toEqual(1)
-    word.removeLetter()
-    expect(word.length).toEqual(0)
-  })
-})
-
 describe('Word Text', () => {
   test('Get word text', () => {
     const word = new Word()
@@ -21,6 +10,14 @@ describe('Word Text', () => {
     word.addLetter('L')
     word.addLetter('E')
     expect(word.text).toBe('APPLE')
+  })
+  test('is an instance', () => {
+    const word = new Word()
+    expect(word).toBeTruthy()
+    word.addLetter('A')
+    expect(word.length).toEqual(1)
+    word.removeLetter()
+    expect(word.length).toEqual(0)
   })
 })
 

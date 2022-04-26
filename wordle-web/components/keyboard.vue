@@ -37,6 +37,7 @@
 import {Component, Vue, Prop} from 'vue-property-decorator'
 import {Letter, LetterStatus} from '~/scripts/letter'
 import {WordleGame} from '~/scripts/wordleGame'
+import {AvailableWordService} from "~/scripts/availableWordService";
 
 @Component
 export default class KeyBoard extends Vue {
@@ -59,9 +60,12 @@ export default class KeyBoard extends Vue {
 
   guessWord() {
     if(this.wordleGame.currentWord.text.includes('?')) {
-      this.wordleGame.showHints = true;
+      // log a message to console
+      // eslint-disable-next-line no-console
+      // this.wordleGame.availableWords = AvailableWordService.UpdatePossibleWordList(this.wordleGame.currentWord.text)
+      this.wordleGame.showHints(true)
     }
-    else if (this.wordleGame.currentWord.length === this.wordleGame.currentWord.maxLetters {
+    else if (this.wordleGame.currentWord.length === this.wordleGame.currentWord.maxLetters ){
       this.wordleGame.submitWord()
     }
   }

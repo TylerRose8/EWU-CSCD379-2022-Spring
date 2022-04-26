@@ -15,11 +15,11 @@
         <game-board :wordleGame="wordleGame"/>
       </v-col>
       <v-col cols="6">
-        <keyboard :wordleGame="wordleGame"/>
+        <keyboard :wordleGame="wordleGame" />
       </v-col>
     </v-row>
     <v-col cols="6">
-      <AvailableWordlist :wordleGame="wordleGame"/>
+      <AvailableWordlist v-show="wordleGame.hints" :wordleGame="wordleGame"/>
     </v-col>
   </v-container>
 </template>
@@ -30,10 +30,10 @@ import {WordsService} from '~/scripts/wordsService'
 import {GameState, WordleGame} from '~/scripts/wordleGame'
 import KeyBoard from '@/components/keyboard.vue'
 import GameBoard from '@/components/game-board.vue'
-// import AvailableWordList from '@/components/available-wordlist.vue'
+import AvailableWordList from '@/components/available-wordlist.vue'
 import {Word} from '~/scripts/word'
 
-@Component({components: {KeyBoard, GameBoard}})
+@Component({components: {KeyBoard, GameBoard, AvailableWordList}})
 export default class Game extends Vue {
   word: string = WordsService.getRandomWord()
   wordleGame = new WordleGame(this.word)
