@@ -14,6 +14,7 @@
       </router-link>
       <v-spacer />
       <settings-dialog />
+      <navigation-dialog/>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -31,7 +32,9 @@ import { Vue, Component } from 'vue-property-decorator'
 import SettingsDialog from '@/components/settings-dialog.vue'
 
 @Component({ components: { SettingsDialog } })
-export default class DefaultLayout extends Vue {}
+export default class DefaultLayout extends Vue {
+  drawer:boolean = true;
+}
 </script>
 
 <style>
