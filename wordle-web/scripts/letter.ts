@@ -21,7 +21,7 @@ export class Letter {
   static getColorCode(status: LetterStatus) {
     switch (status) {
       case LetterStatus.Unknown: {
-        return ''
+        return 'primary'
       }
       case LetterStatus.Correct: {
         return 'success'
