@@ -4,8 +4,9 @@
       <v-col v-for="char in charRow" :key="char" cols="1">
         <v-container class="text-center">
           <v-btn
-                :color="letterColor(char)" :disabled="wordleGame.gameOver"
-                class="gradient" @mouseover="letterColor('hover')" @click="setLetter(char)"> {{ char }}
+                :color="letterColor(char)"
+                :disabled="wordleGame.gameOver"
+                class="gradient border-shadow" @mouseover="letterColor('hover')" @click="setLetter(char)"> {{ char }}
           </v-btn>
         </v-container>
       </v-col>
@@ -87,5 +88,8 @@ export default class KeyBoard extends Vue {
 <style>
 .gradient {
   background: linear-gradient(0deg, rgba(50, 50, 50, 0.8) 0%, rgba(25, 25, 25, 0.5) 25%, rgba(0, 0, 0, 0.1) 100%);
+}
+.border-shadow{
+  mso-border-shadow: yes;
 }
 </style>
