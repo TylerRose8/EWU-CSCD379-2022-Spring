@@ -14,7 +14,7 @@
       <v-col cols="12" justify="center" align="center">
         <game-board :wordleGame="wordleGame"/>
       </v-col>
-      <v-col cols="8">
+      <v-col cols="6">
         <keyboard :wordleGame="wordleGame" />
       </v-col>
     </v-row>
