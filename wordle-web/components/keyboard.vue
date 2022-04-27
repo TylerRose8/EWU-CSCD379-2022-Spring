@@ -3,8 +3,9 @@
     <v-row v-for="(charRow, i) in chars" :key="i" no-gutters justify="center">
       <v-col v-for="char in charRow" :key="char" cols="1">
         <v-container class="text-center">
-          <v-btn :color="letterColor(char)" :disabled="wordleGame.gameOver"
-                 class="gradient" @mouseover="letterColor('hover')" @click="setLetter(char)"> {{ char }}
+          <v-btn
+                :color="letterColor(char)" :disabled="wordleGame.gameOver"
+                class="gradient" @mouseover="letterColor('hover')" @click="setLetter(char)"> {{ char }}
           </v-btn>
         </v-container>
       </v-col>
@@ -50,13 +51,17 @@ export default class KeyBoard extends Vue {
 
   removeLetter() {
     this.wordleGame.currentWord.removeLetter()
+    this.wordleGame.showHints(false)
   }
 
   guessWord() {
-    if (this.wordleGame.currentWord.text.includes('?')) {
-      this.wordleGame.showHints(true)
-    } else if (this.wordleGame.currentWord.length === Word.maxLetters) {
-      this.wordleGame.submitWord()
+
+    if (this.wordleGame.currentWord.length === Word.maxLetters) {
+      if (this.wordleGame.currentWord.text.includes('?')) {
+        this.wordleGame.showHints(true)
+      }else {
+        this.wordleGame.submitWord()
+      }
     }
   }
 
