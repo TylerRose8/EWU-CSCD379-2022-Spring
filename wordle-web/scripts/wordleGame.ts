@@ -1,7 +1,6 @@
 import { LetterStatus } from './letter'
 import { Word } from './word'
 import {AvailableWordService} from "~/scripts/availableWordService";
-import Game from "~/pages/game.vue";
 
 export enum GameState {
   Active = 0,
@@ -11,7 +10,7 @@ export enum GameState {
 
 export class WordleGame {
   private gameCtx: any;
-  constructor(word: string, gameCtx: Game) {
+  constructor(word: string, gameCtx: any) {
     this.words.push(new Word())
     this.word = word
     this.gameCtx = gameCtx
