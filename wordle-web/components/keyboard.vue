@@ -14,7 +14,7 @@
       class="float-left"
       @click="guessWord"
     >
-      Guess
+      Guess/Hints
     </v-btn>
     <v-btn
       :disabled="wordleGame.gameOver"
@@ -31,6 +31,7 @@
 import {Component, Vue, Prop} from 'vue-property-decorator'
 import {Letter, LetterStatus} from '~/scripts/letter'
 import {WordleGame} from '~/scripts/wordleGame'
+import {Word} from "~/scripts/word";
 
 @Component
 export default class KeyBoard extends Vue {
@@ -54,7 +55,7 @@ export default class KeyBoard extends Vue {
   guessWord() {
     if (this.wordleGame.currentWord.text.includes('?')) {
       this.wordleGame.showHints(true)
-    } else if (this.wordleGame.currentWord.length === this.wordleGame.currentWord.maxLetters) {
+    } else if (this.wordleGame.currentWord.length === Word.maxLetters) {
       this.wordleGame.submitWord()
     }
   }

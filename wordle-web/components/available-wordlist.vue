@@ -1,10 +1,17 @@
 <template>
   <v-card class="my-5 pa-5">
+    <v-list style="max-height:200px" class="overflow-y-auto overflow-x-hidden">
+    <v-row>
+      <v-container class="text-left" style="position:absolute">
+        Possible: {{wordleGame.viewHints.length === undefined? 0 : wordleGame.viewHints.length}}
+      </v-container>
+    </v-row>
     <v-row v-for="(word, i) in wordleGame.viewHints" :key="i" no-gutters justify="center">
       <v-container class="text-center">
         <v-btn :disabled="wordleGame.gameOver" @click="setWord(word)"> {{ word }}</v-btn>
       </v-container>
     </v-row>
+    </v-list>
   </v-card>
 </template>
 

@@ -40,13 +40,13 @@
                     <v-list-item-title> Default</v-list-item-title>
                   </v-list-item>
                   <v-list-item @click="purpleTheme">
-                    <v-list-item-title> Purple</v-list-item-title>
+                    <v-list-item-title> Purple People Eater Theme</v-list-item-title>
                   </v-list-item>
                   <v-list-item @click="greenTheme">
-                    <v-list-item-title> Green</v-list-item-title>
+                    <v-list-item-title> Matrix theme</v-list-item-title>
                   </v-list-item>
                   <v-list-item @click="orangeTheme">
-                    <v-list-item-title> Orange</v-list-item-title>
+                    <v-list-item-title> Pumpkin Theme</v-list-item-title>
                   </v-list-item>
                 </v-list-item-group>
               </v-list>

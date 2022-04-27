@@ -19,7 +19,7 @@
       </v-col>
     </v-row>
     <v-col cols="6">
-      <AvailableWordlist v-show="wordleGame.hints" :wordleGame="wordleGame"/>
+      <AvailableWordlist v-show="wordleGame.hints" v-model="wordleGame.hints" :wordleGame="wordleGame"/>
     </v-col>
   </v-container>
 </template>
@@ -31,16 +31,26 @@ import {GameState, WordleGame} from '~/scripts/wordleGame'
 import KeyBoard from '@/components/keyboard.vue'
 import GameBoard from '@/components/game-board.vue'
 import AvailableWordList from '@/components/available-wordlist.vue'
-import {Word} from '~/scripts/word'
 
 @Component({components: {KeyBoard, GameBoard, AvailableWordList}})
 export default class Game extends Vue {
   word: string = WordsService.getRandomWord()
-  wordleGame = new WordleGame(this.word)
+
+  private availableWords: string[] = WordsService.getWords()
+
+  wordleGame = new WordleGame(this.word, this)
+
+  getAvailableWords():string[]{
+    return this.availableWords
+  }
+
+  setAvailableWords(words : string[]){
+    this.availableWords = words;
+  }
 
   resetGame() {
     this.word = WordsService.getRandomWord()
-    this.wordleGame = new WordleGame(this.word)
+    this.wordleGame = new WordleGame(this.word, this)
   }
 
   get gameResult() {
@@ -53,12 +63,12 @@ export default class Game extends Vue {
     return {type: '', text: ''}
   }
 
-  getLetter(row: number, index: number) {
-    const word: Word = this.wordleGame.words[row - 1]
-    if (word !== undefined) {
-      return word.letters[index - 1]?.char ?? ''
-    }
-    return ''
-  }
+  // getLetter(row: number, index: number) {
+  //   const word: Word = this.wordleGame.words[row - 1]
+  //   if (word !== undefined) {
+  //     return word.letters[index - 1]?.char ?? ''
+  //   }
+  //   return ''
+  // }
 }
 </script>

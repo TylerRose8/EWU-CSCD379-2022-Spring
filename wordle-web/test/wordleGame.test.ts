@@ -2,11 +2,11 @@ import { WordleGame, GameState } from '@/scripts/wordleGame'
 
 describe('Game Test', () => {
   test('is an instance', () => {
-    const game = new WordleGame('APPLE')
+    const game = new WordleGame('APPLE', null!)
     expect(game).toBeTruthy()
   })
   test('Win Game', () => {
-    const game = new WordleGame('APPLE')
+    const game = new WordleGame('APPLE', null!)
     expect(game.state).toBe(GameState.Active)
     game.currentWord.addLetter('P')
     game.currentWord.addLetter('A')
@@ -26,7 +26,7 @@ describe('Game Test', () => {
   })
 
   test('Lose Game', () => {
-    const game = new WordleGame('APPLE')
+    const game = new WordleGame('APPLE', null!)
     expect(game.state).toBe(GameState.Active)
     game.currentWord.addLetter('P')
     game.currentWord.addLetter('A')
@@ -78,7 +78,7 @@ describe('Game Test', () => {
 })
 
 describe('correctChars Test', () => {
-  const game = new WordleGame('DISCO')
+  const game = new WordleGame('DISCO', null!)
   expect(game.state).toBe(GameState.Active)
   game.currentWord.addLetter('D')
   game.currentWord.addLetter('I')

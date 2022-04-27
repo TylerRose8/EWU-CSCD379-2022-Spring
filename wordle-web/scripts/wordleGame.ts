@@ -1,6 +1,7 @@
 import { LetterStatus } from './letter'
 import { Word } from './word'
 import {AvailableWordService} from "~/scripts/availableWordService";
+import Game from "~/pages/game.vue";
 
 export enum GameState {
   Active = 0,
@@ -9,9 +10,11 @@ export enum GameState {
 }
 
 export class WordleGame {
-  constructor(word: string) {
+  private gameCtx: any;
+  constructor(word: string, gameCtx: Game) {
     this.words.push(new Word())
     this.word = word
+    this.gameCtx = gameCtx
   }
 
   private word: string
@@ -19,16 +22,15 @@ export class WordleGame {
   state: GameState = GameState.Active
   readonly maxGuesses = 6
   hints: boolean = false
-  availableWords: any
 
   get viewHints(){
-    return this.availableWords
+    return this.gameCtx.getAvailableWords()
   }
 
   showHints(show:boolean){
     this.hints = show
     if(this.hints){
-      this.availableWords = AvailableWordService.ValidWords(this.words[this.words.length-1].text)
+      this.gameCtx.setAvailableWords(AvailableWordService.ValidWords(this.words[this.words.length-1].text))
     }
   }
 

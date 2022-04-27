@@ -2,7 +2,7 @@
   <v-card width="450">
     <v-container class="container-gradient">
       <v-row v-for="row in wordleGame.maxGuesses" :key="row" dense>
-        <v-col v-for="index in wordleGame.currentWord.maxLetters" :key="index">
+        <v-col v-for="index in maxLetters" :key="index">
           <v-card height="50" :color="letterColor(getLetter(row, index))">
             <v-card-text class="text-center">
               {{ getChar(getLetter(row, index)) }}
@@ -24,6 +24,8 @@ import { Letter } from '~/scripts/letter'
 export default class GameBoard extends Vue {
   @Prop({ required: true })
   wordleGame!: WordleGame
+
+  maxLetters:number = Word.maxLetters
 
   getLetter(row: number, index: number): Letter | null {
     const word: Word = this.wordleGame.words[row - 1]
