@@ -1,30 +1,45 @@
-My IP: <input id="ip" disable value="127.0.0.1"/>
-Project Name: <input id="projectName"/>
-Email Address: <input id="emailAddress"/>
-<br/>
-<button id="post">POST</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST Page</title>
+</head>
+<body>
+<div>
+    My IP: <input id="ip" disabled="disabled" value="127.0.0.1"/>
+    <hr/>
+    Project Name: <input id="projectName"/><br/>
+    Email Address: <input id="emailAddress"/><br/>
+    <br/>
+    <button id="post">POST</button>
+</div>
+</body>
+</html>
 
 <script>
-const ip = document.getElementById('ip');
-const button = document.getElementById('post');
-const email = document.getElementById('emailAddress');
-const project = document.getElementById('projectName');
+    const ip = document.getElementById('ip');
+    const button = document.getElementById('post');
+    const email = document.getElementById('emailAddress');
+    const project = document.getElementById('projectName');
 
-button.addEventListener('click', async _ => {
-    const emailText = email.text
-    const projectText = project.text
-    const ipText = ip.text
-  try {     
-    const response = await fetch(ipText, {
-      method: 'post',
-      body: {
-        email: emailText,
-        project: projectText,
-      }
+    button.addEventListener('click', async _ => {
+
+        const emailText = email.innerText
+        const projectText = project.innerText
+        const ipText = ip.innerText
+
+        try {
+            const response = await fetch(ipText, {
+                method: 'post',
+                body: JSON.stringify({
+                    email: emailText,
+                    project: projectText,
+                })
+            });
+            console.log('Completed!', response);
+        } catch (err) {
+            console.error(`Error: ${err}`);
+        }
     });
-    console.log('Completed!', response);
-  } catch(err) {
-    console.error(`Error: ${err}`);
-  }
-});
-<script/>
+</script>
