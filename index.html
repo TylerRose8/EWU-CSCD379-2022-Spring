@@ -1,4 +1,30 @@
-<form action="" method="post">
-    <input type="text" name="email"/>
-    <input type="submit" name="submit"/>
-</form>
+My IP: <input id="ip" disable value="127.0.0.1"/>
+Project Name: <input id="projectName"/>
+Email Address: <input id="emailAddress"/>
+<br/>
+<button id="post">POST</button>
+
+<script>
+const ip = document.getElementById('ip');
+const button = document.getElementById('post');
+const email = document.getElementById('emailAddress');
+const project = document.getElementById('projectName');
+
+button.addEventListener('click', async _ => {
+    const emailText = email.text
+    const projectText = project.text
+    const ipText = ip.text
+  try {     
+    const response = await fetch(ipText, {
+      method: 'post',
+      body: {
+        email: emailText,
+        project: projectText,
+      }
+    });
+    console.log('Completed!', response);
+  } catch(err) {
+    console.error(`Error: ${err}`);
+  }
+});
+<script/>
