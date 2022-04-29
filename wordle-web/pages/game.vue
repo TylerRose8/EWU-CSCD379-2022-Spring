@@ -15,7 +15,7 @@
         <game-board :wordleGame="wordleGame"/>
       </v-col>
       <v-col cols="6">
-        <keyboard :wordleGame="wordleGame" />
+        <keyboard :wordleGame="wordleGame"/>
       </v-col>
     </v-row>
     <v-col cols="6">
@@ -40,11 +40,11 @@ export default class Game extends Vue {
 
   wordleGame = new WordleGame(this.word, this)
 
-  getAvailableWords():string[]{
+  getAvailableWords(): string[] {
     return this.availableWords
   }
 
-  setAvailableWords(words : string[]){
+  setAvailableWords(words: string[]) {
     this.availableWords = words;
   }
 
@@ -55,9 +55,13 @@ export default class Game extends Vue {
 
   get gameResult() {
     if (this.wordleGame.state === GameState.Won) {
+      const audio = new Audio('victory.mp3');
+      audio.play();
       return {type: 'success', text: 'Yay! You won!'}
     }
     if (this.wordleGame.state === GameState.Lost) {
+      const audio = new Audio('sadtrombone.mp3');
+      audio.play();
       return {type: 'error', text: `You lost... :( The word was ${this.word}`}
     }
     return {type: '', text: ''}

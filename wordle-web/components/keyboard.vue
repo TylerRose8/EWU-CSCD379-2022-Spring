@@ -4,9 +4,10 @@
       <v-col v-for="char in charRow" :key="char" cols="1">
         <v-container class="text-center">
           <v-btn
+                :elevation="20"
                 :color="letterColor(char)"
                 :disabled="wordleGame.gameOver"
-                class="gradient border-shadow" @mouseover="letterColor('hover')" @click="setLetter(char)"> {{ char }}
+                class="gradient border-shadow text-h6 font-weight-bold" @mouseover="letterColor('hover')" @click="setLetter(char)"> {{ char }}
           </v-btn>
         </v-container>
       </v-col>
@@ -30,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, Prop} from 'vue-property-decorator'
+import {Component, Vue, Prop, Watch} from 'vue-property-decorator'
 import {Letter, LetterStatus} from '~/scripts/letter'
 import {WordleGame} from '~/scripts/wordleGame'
 import {Word} from "~/scripts/word";
@@ -82,9 +83,15 @@ export default class KeyBoard extends Vue {
 
     return Letter.getColorCode(LetterStatus.Unknown)
   }
+
+  @Watch("wordleGame.currentWord.letters")
+  keyboardKeyClick(){
+    const audio = new Audio("keyboardbuttonclick.mp3");
+    audio.volume = 0.25
+    audio.play()
+  }
 }
 </script>
-
 <style>
 .gradient {
   background: linear-gradient(0deg, rgba(50, 50, 50, 0.8) 0%, rgba(25, 25, 25, 0.5) 25%, rgba(0, 0, 0, 0.1) 100%);
