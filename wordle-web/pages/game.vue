@@ -86,13 +86,17 @@
         </v-col>
       </v-row>
 
-      <v-row justify="center" class="mt-10">
-        <v-alert v-if="gameOverUsername()" width="80%" :type="gameResult.type">
+      <v-row v-if="wordleGame.gameOver" justify="center" class="mt-10">
+        <v-alert
+          v-if="!usernameIsGuestAtGameEnd()"
+          width="80%"
+          :type="gameResult.type"
+        >
           {{ gameResult.text }}
           <v-btn class="ml-2" @click="resetGame"> Play Again? </v-btn>
         </v-alert>
 
-        <v-alert v-if="gameOverGuest()" width="80%" :type="gameResult.type">
+        <v-alert v-else width="80%" :type="gameResult.type">
           {{ gameResult.text }}
 
           <v-btn class="ml-2" @click="resetGame">don't save results</v-btn>
@@ -131,21 +135,11 @@ export default class Game extends Vue {
   wordleGame = new WordleGame(this.word)
 
   isLoaded: boolean = true
+  // temp :string = this.playerName
 
-  gameOverGuest() {
-    return (
-      this.wordleGame.gameOver &&
-      (this.playerName.toLowerCase() === 'guest' ||
-        this.playerName.toLowerCase() === '')
-    )
-  }
-
-  gameOverUsername() {
-    return (
-      this.wordleGame.gameOver &&
-      this.playerName.toLowerCase() !== 'guest' &&
-      this.playerName.toLowerCase() === ''
-    )
+  usernameIsGuestAtGameEnd() {
+    const temp = this.playerName.toLowerCase()
+    return temp === 'guest' || temp === ''
   }
 
   picker = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
