@@ -87,18 +87,17 @@
       </v-row>
 
       <v-row justify="center" class="mt-10">
-        <v-alert v-if="wordleGame.gameOver" width="80%" :type="gameResult.type">
+        <v-alert v-if="gameOverUsername()" width="80%" :type="gameResult.type">
+          {{ gameResult.text }}
+          <v-btn class="ml-2" @click="resetGame"> Play Again? </v-btn>
+        </v-alert>
+
+        <v-alert v-if="gameOverGuest()" width="80%" :type="gameResult.type">
           {{ gameResult.text }}
 
           <v-btn class="ml-2" @click="resetGame">don't save results</v-btn>
-          <v-btn class="ml-2" @click="dialogBox.showDialog"
-            >save my results!</v-btn
-          >
+          <v-btn class="ml-2" @click="dialog = true">save my results!</v-btn>
         </v-alert>
-      </v-row>
-
-      <v-row v-if="dialogBox.visible" justify="center" class="mt-10">
-        <DialogBox />
       </v-row>
 
       <v-row justify="center">
@@ -118,7 +117,6 @@ import { GameState, WordleGame } from '~/scripts/wordleGame'
 import KeyBoard from '@/components/keyboard.vue'
 import GameBoard from '@/components/game-board.vue'
 import { Word } from '~/scripts/word'
-import DialogBox from '@/components/DialogBox.vue'
 
 @Component({ components: { KeyBoard, GameBoard } })
 export default class Game extends Vue {
@@ -131,9 +129,25 @@ export default class Game extends Vue {
   intervalID: any
   word: string = WordsService.getRandomWord()
   wordleGame = new WordleGame(this.word)
-  dialogBox = new DialogBox()
 
   isLoaded: boolean = true
+
+  gameOverGuest() {
+    return (
+      this.wordleGame.gameOver &&
+      (this.playerName.toLowerCase() === 'guest' ||
+        this.playerName.toLowerCase() === '')
+    )
+  }
+
+  gameOverUsername() {
+    return (
+      this.wordleGame.gameOver &&
+      this.playerName.toLowerCase() !== 'guest' &&
+      this.playerName.toLowerCase() === ''
+    )
+  }
+
   picker = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
     .toISOString()
     .substr(0, 10)
@@ -167,9 +181,10 @@ export default class Game extends Vue {
         this.playerName !== ''
       ) {
         this.endGameSave()
-      } else {
-        this.dialog = true
       }
+      // else {
+      //   this.dialog = true
+      // }
       return { type: 'success', text: 'You won! :^)' }
     }
     if (this.wordleGame.state === GameState.Lost) {
