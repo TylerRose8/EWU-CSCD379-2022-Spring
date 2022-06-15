@@ -83,7 +83,7 @@
           </v-card-text>
         </v-col>
       </v-row>
-      <v-row justify="center">
+      <v-row justify="left">
         <game-board :wordleGame="wordleGame" />
       </v-row>
       <v-row justify="center">
