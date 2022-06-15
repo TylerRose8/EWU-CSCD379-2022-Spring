@@ -83,14 +83,7 @@
           </v-card-text>
         </v-col>
       </v-row>
-      <v-row justify="center" class="mt-10">
-        <v-alert v-if="wordleGame.gameOver" width="80%" :type="gameResult.type">
-          {{ gameResult.text }}
-          <v-btn class="ml-2" @click="resetGame"> Play Again? </v-btn>
-        </v-alert>
-      </v-row>
-
-      <v-row justify="center">
+      <v-row justify="left">
         <game-board :wordleGame="wordleGame" />
       </v-row>
       <v-row justify="center">
